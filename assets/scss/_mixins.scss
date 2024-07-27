@@ -1,7 +1,7 @@
 // Define o mixin box-shadow com parâmetros
-@mixin d-flex($justify, $align) {
+@mixin d-flex($justify, $align, $wrap: initial) {
     display: flex;
     align-items: $align;
     justify-content: $justify;
-    flex-wrap: wrap;
+    flex-wrap: $wrap;
 }
