@@ -46,7 +46,27 @@ setInterval(updateDateTime, 1000);
 // =====================
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    const atalhoItems = document.querySelectorAll('.atalho');
+    const atalhoItems = document.querySelectorAll('.desktop .atalho');
+
+    atalhoItems.forEach(item => {
+      item.addEventListener('click', function(event) {
+        // Remove 'active' class from all menu items
+        atalhoItems.forEach(i => i.classList.remove('active'));
+        // Add 'active' class to the clicked menu item
+        this.classList.add('active');
+        // Stop propagation to prevent triggering the document click event
+        event.stopPropagation();
+      });
+    });
+
+    document.addEventListener('click', function(event) {
+      // Remove 'active' class from all menu items if clicked outside
+      atalhoItems.forEach(item => item.classList.remove('active'));
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const atalhoItems = document.querySelectorAll('.barra-tarefas .nav-item');
 
     atalhoItems.forEach(item => {
       item.addEventListener('click', function(event) {
