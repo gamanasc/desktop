@@ -5,7 +5,8 @@ body{
 }
 
 .wallpaper{
-    background-image: url('../images/wallpaper.png');
+    // background-image: url('../images/wallpaper.png');
+    background: linear-gradient(45deg, #07072e, #0c0c4e);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
