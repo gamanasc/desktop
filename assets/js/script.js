@@ -97,8 +97,8 @@ dragElement(document.getElementById("explorer"));
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "__header")) {
-    document.getElementById(elmnt.id + "__header").onmousedown = dragMouseDown;
+  if (document.getElementById(elmnt.id + "__dragabble")) {
+    document.getElementById(elmnt.id + "__dragabble").onmousedown = dragMouseDown;
   } else {
     elmnt.onmousedown = dragMouseDown;
   }
@@ -166,6 +166,15 @@ document.addEventListener('DOMContentLoaded', () => {
             // this.classList.add("nav-item__active");
         });
     });
+});
+
+// FECHAR EXPLORADOR DE ARQUIVOS
+document.addEventListener('DOMContentLoaded', () => {
+  const fechar_notas = document.getElementById("fechar_notas");
+
+  fechar_notas.addEventListener('click', () => {
+    document.getElementById("notas_autoadesivas").classList.add("hidden");
+});
 });
 
 // MINIMIZAR TUDO

@@ -9,6 +9,10 @@ body{
     font-style: italic;
 }
 
+.hidden{
+    display: none;
+}
+
 .wallpaper{
     background: linear-gradient(45deg, #07072e, #0c0c4e);
     background-size: cover;
@@ -67,8 +71,11 @@ body{
     left: 20%;
     z-index: 10;
 
-    &.hidden{
-        display: none;
+    // VISUALIZAÇÃO PELO CELULAR
+    @media (max-width: $breakpoint-mobile) {
+        width: 90%;
+        top: 40px;
+        left: 5%;
     }
 
     &__header{
@@ -84,12 +91,23 @@ body{
             box-sizing: border-box;
             padding: 6px 15px;
             width: 85%;
+
+            // VISUALIZAÇÃO PELO CELULAR
+            @media (max-width: $breakpoint-mobile) {
+                width: 60%;
+            }
         }
 
         &__botoes{
             @include d-flex(center, center);
             width: 15%;
             height: 100%;
+
+            // VISUALIZAÇÃO PELO CELULAR
+            @media (max-width: $breakpoint-mobile) {
+                width: 40%;
+            }
+
             div{
                 @include d-flex(center, center);
                 width: 33.33%;
@@ -141,6 +159,18 @@ body{
     position: absolute;
     top: 40px;
     right: 40px;
+    cursor: default;
+
+    #notas_autoadesivas__dragabble{
+        width: 100%;
+    }
+
+    // VISUALIZAÇÃO PELO CELULAR
+    @media (max-width: $breakpoint-mobile) {
+        width: 90%;
+        top: 40px;
+        right: 5%;
+    }
 
     &__header{
         width: 100%;
