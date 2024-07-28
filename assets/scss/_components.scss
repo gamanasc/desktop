@@ -27,15 +27,21 @@ body{
     height: auto;
     font-size: 12px;
     text-align: center;
-    @include d-flex(space-between, center, wrap);
+    @include d-flex(center, center, wrap);
     padding: 10px;
     box-sizing: border-box;
     line-height: 1.5;
     cursor: default;
+    @include noselect();
 
     img{
         width: 85%;
         margin: 0 auto 5px;
+    }
+
+    &__nome{
+        width: 100%;
+        text-align: center;
     }
 
     &.active{
@@ -200,6 +206,7 @@ body{
     left: 0;
     z-index: 10000;
     @include d-flex(space-between, center);
+    @include noselect();
 
     &__iniciar{
         @include d-flex(center, center);

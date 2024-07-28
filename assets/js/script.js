@@ -136,8 +136,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Adiciona um ouvinte de evento de clique a cada item de menu
     menuItems.forEach(item => {
-        item.addEventListener('click', () => {
-        document.getElementById("explorer").classList.remove("hidden");
+        item.addEventListener('click', (event) => {
+
+          // ABRIR PELO ÍCONE COM CLIQUE DUPLO, E PELA BARRA DE TAREFAS COM UM CLIQUE SÓ
+          if (event.detail === 2 || (event.detail === 1 && item.classList.contains('nav-item')) ) {
+            document.getElementById("explorer").classList.remove("hidden");
+          }
+
+          // ALTERANDO O TÍTULO BASEADO NO TIPO DE JANELA
+          // if(item.getAttribute('data-tipo') == 'lixeira'){
+          //   document.getElementById("explorer__header").innerHTML = "Lixeira";
+          // }else if (item.getAttribute('data-tipo') == 'explorer'){
+          //   document.getElementById("explorer__header").innerHTML = "Explorador de arquivos";
+          // }
+
         });
     });
 });
@@ -154,4 +166,16 @@ document.addEventListener('DOMContentLoaded', () => {
             // this.classList.add("nav-item__active");
         });
     });
+});
+
+// MINIMIZAR TUDO
+document.addEventListener('DOMContentLoaded', () => {
+  // Seleciona todos os elementos com a classe 'voltar_desktop'
+  const btn_voltar = document.getElementById("voltar_desktop");
+
+  // Adiciona um ouvinte de evento de clique a cada item de menu
+  btn_voltar.addEventListener('click', () => {
+      document.getElementById("explorer").classList.add("hidden");
+  });
+
 });

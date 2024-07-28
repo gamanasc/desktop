@@ -12,20 +12,20 @@
         <!-- ATALHOS DESKTOP -->
 
         <div class="desktop">
-            <div class="atalho abrir_explorer">
-               <img src="assets/images/icons/folder.png" alt="">
-               Windows Explorer
+            <div class="atalho abrir_explorer" data-tipo="lixeira">
+               <img src="assets/images/icons/lixeira.png" alt="Atalho de lixeira" draggable="false">
+               <span class="atalho__nome">Lixeira</span>
             </div>
 
-            <div class="atalho abrir_explorer">
-                <img src="assets/images/icons/folder.png" alt="">
-                Windows Explorer
+            <div class="atalho abrir_explorer" data-tipo="explorer">
+                <img src="assets/images/icons/folder.png" alt="Atalho de explorador de arquivos" draggable="false">
+                <span class="atalho__nome">Windows Explorer</span>
              </div>
              
              
              <!-- APLICAÇÕES ABERTAS -->
 
-             <!-- NOTAS AUTOADESIVAR -->
+             <!-- NOTAS AUTOADESIVAS -->
               <div class="notas_autoadesivas" id="notas_autoadesivas">
                 <div class="notas_autoadesivas__header" id="notas_autoadesivas__header">
                     <div class="notas_autoadesivas__header__add">+</div>
@@ -38,7 +38,7 @@
                 </div>
               </div>
 
-              <!-- WINDOWS EXPLORER -->
+              <!-- EXPLORER -->
                <div class="explorer hidden" id="explorer">
                 <div class="explorer__header">
                     <div class="explorer__header__titulo" id="explorer__header">Explorador de arquivos</div>
@@ -68,9 +68,8 @@
             </div>
 
             <div class="barra-tarefas__apps">
-                <div class="nav-item abrir_explorer"> <img src="assets/images/icons/folder.png" alt=""> </div>
-                <div class="nav-item abrir_explorer"> <img src="assets/images/icons/folder.png" alt=""> </div>
-                <div class="nav-item nav-item__active"> <img src="assets/images/icons/notes.png" alt=""> </div>
+                <div class="nav-item abrir_explorer"> <img src="assets/images/icons/folder.png" alt="Ícone de explorador de arquivos" draggable="false"> </div>
+                <div class="nav-item nav-item__active"> <img src="assets/images/icons/notes.png" alt="Ícone de notas autoadesivas" draggable="false"> </div>
             </div>
 
             <div class="barra-tarefas__icones">
@@ -80,9 +79,9 @@
                     <span id="data_atual"></span>
                 </div>
                 <div class="nav-item"> 
-                    <img src="assets/images/icons/notificacoes.png" alt=""> 
+                    <img src="assets/images/icons/notificacoes.png" alt="Ícone de notificações" draggable="false"> 
                 </div>
-                <div class="voltar_desktop"></div>
+                <div class="voltar_desktop" id="voltar_desktop"></div>
             </div>
 
 
