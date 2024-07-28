@@ -21,6 +21,12 @@
         left: 0 !important;
     }
 
+    &.min{
+        transform: scale(0);
+        top: 100%;
+        transition: .2s ease-out;
+    }
+
     &__header{
         background-color: $theme_explorer;
         width: 100%;

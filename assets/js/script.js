@@ -147,6 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
           // ABRIR PELO ÍCONE COM CLIQUE DUPLO, E PELA BARRA DE TAREFAS COM UM CLIQUE SÓ
           if (event.detail === 2 || (event.detail === 1 && item.classList.contains('nav-item')) || check_mobile() ) {
             document.getElementById("explorer").classList.remove("hidden");
+            document.getElementById("explorer").classList.remove("min");
+            document.getElementById("nav-explorer").classList.add("nav-item__active");
           }
 
         });
@@ -172,6 +174,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// MINIMIZAR / DESMINIMIZAR EXPLORADOR DE ARQUIVOS
+document.addEventListener('DOMContentLoaded', () => {
+  const min_explorer = document.getElementById("min_explorer");
+
+  min_explorer.addEventListener('click', () => {
+    document.getElementById("explorer").style.removeProperty("top");
+    document.getElementById("explorer").style.removeProperty("left");
+    document.getElementById("explorer").classList.remove("max");
+    document.getElementById("explorer").classList.add("min");
+  });
+});
+
+
+
 
 // FECHAR EXPLORADOR DE ARQUIVOS
 document.addEventListener('DOMContentLoaded', () => {
@@ -182,17 +198,17 @@ document.addEventListener('DOMContentLoaded', () => {
     fechar_explorer.forEach(item => {
         item.addEventListener('click', () => {
             document.getElementById("explorer").classList.add("hidden");
-            // this.classList.add("nav-item__active");
+            document.getElementById("nav-explorer").classList.remove("nav-item__active");
         });
     });
 });
 
 // ABRIR NOTAS AUTOADESIVAS
 document.addEventListener('DOMContentLoaded', () => {
-  const abrir_explorer = document.querySelectorAll('.abrir_notas');
+  const abrir_notas = document.querySelectorAll('.abrir_notas');
 
   // Adiciona um ouvinte de evento de clique a cada item de menu
-  abrir_explorer.forEach(item => {
+  abrir_notas.forEach(item => {
       item.addEventListener('click', (event) => {
 
         // ABRIR PELO ÍCONE COM CLIQUE DUPLO, E PELA BARRA DE TAREFAS COM UM CLIQUE SÓ
