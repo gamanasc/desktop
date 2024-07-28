@@ -138,23 +138,16 @@ function dragElement(elmnt) {
 // ABRIR EXPLORADOR DE ARQUIVOS
 document.addEventListener('DOMContentLoaded', () => {
     // Seleciona todos os elementos com a classe 'menu-item'
-    const menuItems = document.querySelectorAll('.abrir_explorer');
+    const abrir_explorer = document.querySelectorAll('.abrir_explorer');
 
     // Adiciona um ouvinte de evento de clique a cada item de menu
-    menuItems.forEach(item => {
+    abrir_explorer.forEach(item => {
         item.addEventListener('click', (event) => {
 
           // ABRIR PELO ÍCONE COM CLIQUE DUPLO, E PELA BARRA DE TAREFAS COM UM CLIQUE SÓ
           if (event.detail === 2 || (event.detail === 1 && item.classList.contains('nav-item')) || check_mobile() ) {
             document.getElementById("explorer").classList.remove("hidden");
           }
-
-          // ALTERANDO O TÍTULO BASEADO NO TIPO DE JANELA
-          // if(item.getAttribute('data-tipo') == 'lixeira'){
-          //   document.getElementById("explorer__header").innerHTML = "Lixeira";
-          // }else if (item.getAttribute('data-tipo') == 'explorer'){
-          //   document.getElementById("explorer__header").innerHTML = "Explorador de arquivos";
-          // }
 
         });
     });
@@ -163,10 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // FECHAR EXPLORADOR DE ARQUIVOS
 document.addEventListener('DOMContentLoaded', () => {
     // Seleciona todos os elementos com a classe 'menu-item'
-    const menuItems = document.querySelectorAll('.fechar_explorer');
+    const fechar_explorer = document.querySelectorAll('.fechar_explorer');
 
     // Adiciona um ouvinte de evento de clique a cada item de menu
-    menuItems.forEach(item => {
+    fechar_explorer.forEach(item => {
         item.addEventListener('click', () => {
             document.getElementById("explorer").classList.add("hidden");
             // this.classList.add("nav-item__active");
@@ -174,13 +167,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// FECHAR EXPLORADOR DE ARQUIVOS
+// ABRIR EXPLORADOR DE ARQUIVOS
+document.addEventListener('DOMContentLoaded', () => {
+  const abrir_explorer = document.querySelectorAll('.abrir_notas');
+
+  // Adiciona um ouvinte de evento de clique a cada item de menu
+  abrir_explorer.forEach(item => {
+      item.addEventListener('click', (event) => {
+
+        // ABRIR PELO ÍCONE COM CLIQUE DUPLO, E PELA BARRA DE TAREFAS COM UM CLIQUE SÓ
+        if (event.detail === 2 || (event.detail === 1 && item.classList.contains('nav-item')) || check_mobile() ) {
+          document.getElementById("notas_autoadesivas").classList.remove("hidden");
+          document.getElementById("nav-notas").classList.add("nav-item__active");
+        }
+
+      });
+  });
+});
+
+// FECHAR NOTAS AUTOADESIVAS
 document.addEventListener('DOMContentLoaded', () => {
   const fechar_notas = document.getElementById("fechar_notas");
 
   fechar_notas.addEventListener('click', () => {
-    document.getElementById("notas_autoadesivas").classList.add("hidden");
-});
+      document.getElementById("notas_autoadesivas").classList.add("hidden");
+      document.getElementById("nav-notas").classList.remove("nav-item__active");
+  });
 });
 
 // MINIMIZAR TUDO
