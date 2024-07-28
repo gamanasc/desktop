@@ -10,6 +10,13 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 if (document.addEventListener) {
   document.addEventListener('contextmenu', function(e) {
 
+    console.log(e.target);  // to get the element
+    // console.log(e.target.tagName);  // to get the element tag name alone
+    
+    if(!e.target.classList.contains('desktop')){
+      return false;
+    }
+
     var left  = e.clientX  + "px";
     var top  = e.clientY  + "px";
 
@@ -36,6 +43,7 @@ window.addEventListener('click', function(e){
     document.getElementById("menu_personalizado").classList.add("hidden");
   }
 });
+
 
 // DATA E HORA
 function updateDateTime() {
