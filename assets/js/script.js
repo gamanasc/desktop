@@ -1,3 +1,9 @@
+// VERIFICAR SE É CELULAR
+function check_mobile() {
+  return ( ( window.innerWidth <= 800 ) );
+}
+
+// DATA E HORA
 function updateDateTime() {
 
     // Cria uma data com a hora atual
@@ -139,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', (event) => {
 
           // ABRIR PELO ÍCONE COM CLIQUE DUPLO, E PELA BARRA DE TAREFAS COM UM CLIQUE SÓ
-          if (event.detail === 2 || (event.detail === 1 && item.classList.contains('nav-item')) ) {
+          if (event.detail === 2 || (event.detail === 1 && item.classList.contains('nav-item')) || check_mobile() ) {
             document.getElementById("explorer").classList.remove("hidden");
           }
 
