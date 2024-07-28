@@ -3,6 +3,40 @@ function check_mobile() {
   return ( ( window.innerWidth <= 800 ) );
 }
 
+// NÃO PERMITIR MENU DE BOTÃO DIREITO
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// MENU DE BOTÃO DIREITO PERSONALIZADO
+if (document.addEventListener) {
+  document.addEventListener('contextmenu', function(e) {
+
+    var left  = e.clientX  + "px";
+    var top  = e.clientY  + "px";
+
+    var div = document.getElementById('menu_personalizado');
+
+    div.style.left = left;
+    div.style.top = top;
+
+    document.getElementById("menu_personalizado").classList.remove("hidden");
+
+    e.preventDefault();
+    return false;
+
+  }, false);
+} else {
+  document.attachEvent('oncontextmenu', function() {
+    alert("You've tried to open context menu else");
+    window.event.returnValue = false;
+  });
+}
+
+window.addEventListener('click', function(e){   
+  if (!document.getElementById('menu_personalizado').contains(e.target)){
+    document.getElementById("menu_personalizado").classList.add("hidden");
+  }
+});
+
 // DATA E HORA
 function updateDateTime() {
 
@@ -121,11 +155,16 @@ function dragElement(elmnt) {
   function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
+
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+
+    if(e.clientY > 10){
+      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    }
+
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
   }
 
