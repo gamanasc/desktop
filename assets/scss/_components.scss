@@ -29,6 +29,9 @@ body{
 .desktop{
     width: 100vw;
     height: calc(100vh - 50px);
+    @media (max-width: $breakpoint-mobile) {
+        height: calc(100dvh - 50px);
+    }
     padding: 5px;
     box-sizing: border-box;
 }
