@@ -153,6 +153,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// MAXIMIZAR / DESMAXIMIZAR EXPLORADOR DE ARQUIVOS
+document.addEventListener('DOMContentLoaded', () => {
+  const max_explorer = document.getElementById("max_explorer");
+
+  max_explorer.addEventListener('click', () => {
+
+    if(max_explorer.getElementsByTagName("span")[0].classList.contains('max')){
+      document.getElementById("explorer").classList.add("max");
+      max_explorer.getElementsByTagName("span")[0].classList.remove("max");
+      max_explorer.getElementsByTagName("span")[0].classList.add("unmax");
+    }else{
+      document.getElementById("explorer").classList.remove("max");
+      max_explorer.getElementsByTagName("span")[0].classList.add("max");
+      max_explorer.getElementsByTagName("span")[0].classList.remove("unmax");
+    }
+
+  });
+});
+
+
 // FECHAR EXPLORADOR DE ARQUIVOS
 document.addEventListener('DOMContentLoaded', () => {
     // Seleciona todos os elementos com a classe 'menu-item'
@@ -167,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// ABRIR EXPLORADOR DE ARQUIVOS
+// ABRIR NOTAS AUTOADESIVAS
 document.addEventListener('DOMContentLoaded', () => {
   const abrir_explorer = document.querySelectorAll('.abrir_notas');
 
