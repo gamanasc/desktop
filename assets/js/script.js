@@ -278,6 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Adiciona um ouvinte de evento de clique a cada item de menu
   btn_voltar.addEventListener('click', () => {
       document.getElementById("explorer").classList.add("hidden");
+      document.getElementById("notas_autoadesivas").classList.add("hidden");
   });
 
 });
