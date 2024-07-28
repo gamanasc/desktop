@@ -150,7 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Adiciona um ouvinte de evento de clique a cada item de menu
     menuItems.forEach(item => {
         item.addEventListener('click', () => {
-        document.getElementById("explorer").classList.add("hidden");
+            document.getElementById("explorer").classList.add("hidden");
+            // this.classList.add("nav-item__active");
         });
     });
 });
