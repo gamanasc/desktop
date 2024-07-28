@@ -1,3 +1,9 @@
 @import 'variaveis';
 @import 'mixins';
 @import 'components';
+
+// Elementos
+@import 'parts/desktop';
+@import 'parts/explorer';
+@import 'parts/notas_adesivas';
+@import 'parts/barra_tarefas';

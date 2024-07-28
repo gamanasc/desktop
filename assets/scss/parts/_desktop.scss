@@ -1,0 +1,41 @@
+.desktop{
+    width: 100vw;
+    height: calc(100vh - 50px);
+    @media (max-width: $breakpoint-mobile) {
+        height: calc(100dvh - 50px);
+    }
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.atalho{
+    width: 70px;
+    height: auto;
+    font-size: 12px;
+    text-align: center;
+    @include d-flex(center, center, wrap);
+    padding: 10px;
+    box-sizing: border-box;
+    line-height: 1.5;
+    cursor: default;
+    @include noselect();
+
+    img{
+        width: 85%;
+        margin: 0 auto 5px;
+    }
+
+    &__nome{
+        width: 100%;
+        text-align: center;
+    }
+
+    &.active{
+        outline: 1px solid $border;
+        background-color: $active;
+    }
+
+    &:hover{
+        background-color: $active;
+    }
+}

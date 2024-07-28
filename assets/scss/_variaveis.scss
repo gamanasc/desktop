@@ -1,3 +1,23 @@
 /* Definição de variáveis para os breakpoints */
 $breakpoint-mobile: 767px;
 $breakpoint-tablet: 1023px;
+
+/* Cores */
+$active: rgb(82 81 81 / 25%);
+$danger: rgb(255 0 0);
+$border: #FFF;
+
+// Explorer
+$theme_explorer: #000000;
+$bg_explorer: #202020;
+
+// Notas autoadesivas
+$header_notas: #e6b905;
+$header_text: #1a1a1a;
+$bg_notas: #333333;
+$text_select_notas: #FFF;
+$bg_select_notas: #8f7300;
+
+// Barra de tarefas
+$bg_barra: rgb(0 0 0 / 60%);
+$logo_color: #FFF;
