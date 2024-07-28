@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   //Make the DIV element draggagle:
 dragElement(document.getElementById("notas_autoadesivas"));
+dragElement(document.getElementById("explorer"));
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -127,3 +128,29 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+
+// ABRIR EXPLORADOR DE ARQUIVOS
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleciona todos os elementos com a classe 'menu-item'
+    const menuItems = document.querySelectorAll('.abrir_explorer');
+
+    // Adiciona um ouvinte de evento de clique a cada item de menu
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+        document.getElementById("explorer").classList.remove("hidden");
+        });
+    });
+});
+
+// FECHAR EXPLORADOR DE ARQUIVOS
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleciona todos os elementos com a classe 'menu-item'
+    const menuItems = document.querySelectorAll('.fechar_explorer');
+
+    // Adiciona um ouvinte de evento de clique a cada item de menu
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+        document.getElementById("explorer").classList.add("hidden");
+        });
+    });
+});

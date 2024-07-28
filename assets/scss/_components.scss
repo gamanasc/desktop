@@ -48,6 +48,80 @@ body{
     }
 }
 
+.explorer{
+    background: #202020;
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    z-index: 10;
+
+    &.hidden{
+        display: none;
+    }
+
+    &__header{
+        background-color: #000000;
+        width: 100%;
+        height: 35px;
+        position: relative;
+        @include d-flex(space-between, center);
+
+        &__titulo{
+            display: inline;
+            font-size: 12px;
+            box-sizing: border-box;
+            padding: 6px 15px;
+            width: 85%;
+        }
+
+        &__botoes{
+            @include d-flex(center, center);
+            width: 15%;
+            height: 100%;
+            div{
+                @include d-flex(center, center);
+                width: 33.33%;
+                height: 100%;
+                text-align: center;
+
+                .min{
+                    width: 8px;
+                    height: 8px;
+                    border-bottom: 1px solid white;
+                }
+
+                .max{
+                    width: 8px;
+                    height: 8px;
+                    border: 1px solid white;
+                }
+
+                .fechar{
+                    @include d-flex(center, center);
+                }
+
+                .fechar::after{
+                    content: "\00d7"; /* This will render the 'X' */
+                    font-weight: 100;
+                    transform: scale(1.4);
+                }
+
+                &:hover{
+                    background-color: rgb(82 81 81 / 25%);
+                }
+
+                &:last-child{
+                    &:hover{
+                        background-color: red;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .notas_autoadesivas{
     background: #333333;
     width: 400px;
@@ -124,6 +198,7 @@ body{
     overflow: hidden;
     bottom: 0;
     left: 0;
+    z-index: 10000;
     @include d-flex(space-between, center);
 
     &__iniciar{
