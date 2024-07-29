@@ -209,9 +209,42 @@
                 width: 75%;
                 height: 100%;
                 
-                padding: 20px 10px;
+                padding: 10px;
                 font-size: 12px;
-                text-align: center;
+                @include d-flex(flex-start, flex-start, wrap);
+                @include noselect();
+                align-content: flex-start;
+                box-sizing: border-box;
+
+                .arquivos_item{
+                    width: 30%;
+                    height: 40px;
+                    margin: 1.5%;
+                    box-sizing: border-box;
+                    padding: 5px;
+                    @include d-flex(flex-start, flex-start, wrap);
+
+                    img{
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 10px;
+                    }
+
+                    span{
+                        padding: 5px 0px;
+                    }
+
+                    &.active{
+                        outline: 1px solid $border;
+                        background-color: $active;
+                    }
+                
+                    &:hover{
+                        background-color: $active;
+                    }
+
+                }
+
             }
         }
     }
