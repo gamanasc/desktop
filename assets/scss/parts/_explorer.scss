@@ -33,6 +33,8 @@
         height: 35px;
         position: relative;
         @include d-flex(space-between, center);
+        @include noselect();
+
 
         &__titulo{
             display: inline;
@@ -111,6 +113,105 @@
                         background-color: $danger;
                     }
                 }
+            }
+        }
+    }
+
+    &__body{
+        width: 100%;
+        height: 100%;
+        @include d-flex(flex-start, flex-start, wrap);
+        align-content: flex-start;
+
+        &__endereco{
+            @include d-flex(space-between, center);
+            @include noselect();
+
+            background: #191919;
+            padding: 8px 8px;
+            font-size: 12px;
+            width: 100%;
+            height: 40px;
+            box-sizing: border-box;
+
+            span:first-child{
+                width: 70%;
+                display: block;
+                padding: 5px;
+                border: 1px solid $active;
+                color: #b4b4b4;
+                @include d-flex(flex-start, center);
+
+                &::before{
+                    content: '';
+                    display: block;
+                    width: 15px;
+                    height: 15px;
+                    background-image: url('../images/icons/folder.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    margin-right: 5px;
+                    margin-top: 0.5%;
+                }
+            }
+
+            span:last-child{
+                width: 25%;
+                display: block;
+                padding: 5px;
+                border: 1px solid $active;
+                color: #b4b4b4;
+            }
+        }
+
+        &__conteudo{
+            @include d-flex(flex-start, flex-start);
+            width: 100%;
+            height: calc(100% - 75px);
+            position: relative;
+            
+            &__nav{
+                width: 25%;
+                height: 100%;
+                @include d-flex(flex-start, flex-start, wrap);
+                align-content: flex-start;
+                background: #191919;
+
+
+                &__item{
+                    width: 100%;
+                    padding: 8px 15px;
+                    font-size: 12px;
+                    box-sizing: border-box;
+                    @include noselect();
+                    @include d-flex(flex-start, flex-start);
+                    line-height: 1.5;
+
+                    &:hover{
+                        background-color: $active;
+                    }
+
+                    &::before{
+                        content: '';
+                        display: block;
+                        width: 15px;
+                        height: 15px;
+                        background-image: url('../images/icons/folder.png');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        margin-right: 5px;
+                        margin-top: 1.5%;
+                    }
+                }
+            }
+
+            &__arquivos{
+                width: 75%;
+                height: 100%;
+                
+                padding: 20px 10px;
+                font-size: 12px;
+                text-align: center;
             }
         }
     }
