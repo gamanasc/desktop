@@ -99,8 +99,21 @@
                     </div>
                 </div>
 
+                <div class="painter__toolbar hidden">
+                    <div id="toolbar">
+                        <h1>Draw.</h1>
+                        <label for="stroke">Stroke</label>
+                        <input id="stroke" name='stroke' type="color">
+                        <label for="lineWidth">Line Width</label>
+                        <input id="lineWidth" name='lineWidth' type="number" value="5">
+                        <button id="clear">Clear</button>
+                    </div>
+                </div>
+
                 <div class="painter__body">
-                    <div class="painter__body__canvas"></div>
+                    <div class="painter__body__canvas drawing-board">
+                        <canvas id="drawing-board"></canvas>
+                    </div>
                 </div>
 
 
@@ -149,6 +162,7 @@
 
     <!-- JAVASCRIPT -->
      <script src="assets/js/script.js"></script>
+     <script src="assets/js/canvas.js"></script>
 
 </body>
 </html>

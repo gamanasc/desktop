@@ -203,53 +203,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+maximizar('explorer');
+maximizar('painter');
+
 // MAXIMIZAR / DESMAXIMIZAR EXPLORADOR DE ARQUIVOS
-document.addEventListener('DOMContentLoaded', () => {
-  const max_explorer = document.getElementById("max_explorer");
-
-  max_explorer.addEventListener('click', () => {
-
-    if(max_explorer.getElementsByTagName("span")[0].classList.contains('max')){
-      document.getElementById("explorer").classList.add("max");
-      max_explorer.getElementsByTagName("span")[0].classList.remove("max");
-      max_explorer.getElementsByTagName("span")[0].classList.add("unmax");
-    }else{
-      document.getElementById("explorer").classList.remove("max");
-      max_explorer.getElementsByTagName("span")[0].classList.add("max");
-      max_explorer.getElementsByTagName("span")[0].classList.remove("unmax");
-    }
-
+function maximizar(target){
+  document.addEventListener('DOMContentLoaded', () => {
+    const max = document.getElementById("max_"+target);
+  
+    max.addEventListener('click', () => {
+  
+      if(max.getElementsByTagName("span")[0].classList.contains('max')){
+        document.getElementById(target).classList.add("max");
+        max.getElementsByTagName("span")[0].classList.remove("max");
+        max.getElementsByTagName("span")[0].classList.add("unmax");
+      }else{
+        document.getElementById(target).classList.remove("max");
+        max.getElementsByTagName("span")[0].classList.add("max");
+        max.getElementsByTagName("span")[0].classList.remove("unmax");
+      }
+  
+    });
   });
-});
+}
+
+minimizar('explorer');
+minimizar('painter');
 
 // MINIMIZAR / DESMINIMIZAR EXPLORADOR DE ARQUIVOS
-document.addEventListener('DOMContentLoaded', () => {
-  const min_explorer = document.getElementById("min_explorer");
-
-  min_explorer.addEventListener('click', () => {
-    document.getElementById("explorer").style.removeProperty("top");
-    document.getElementById("explorer").style.removeProperty("left");
-    document.getElementById("explorer").classList.remove("max");
-    document.getElementById("explorer").classList.add("min");
+function minimizar(target){
+  document.addEventListener('DOMContentLoaded', () => {
+    const min = document.getElementById("min_"+target);
+  
+    min.addEventListener('click', () => {
+      document.getElementById(target).style.removeProperty("top");
+      document.getElementById(target).style.removeProperty("left");
+      document.getElementById(target).classList.remove("max");
+      document.getElementById(target).classList.add("min");
+    });
   });
-});
+}
 
-
-
+fechar('explorer');
+fechar('painter');
 
 // FECHAR EXPLORADOR DE ARQUIVOS
-document.addEventListener('DOMContentLoaded', () => {
-    // Seleciona todos os elementos com a classe 'menu-item'
-    const fechar_explorer = document.querySelectorAll('.fechar_explorer');
-
-    // Adiciona um ouvinte de evento de clique a cada item de menu
-    fechar_explorer.forEach(item => {
-        item.addEventListener('click', () => {
-            document.getElementById("explorer").classList.add("hidden");
-            document.getElementById("nav-explorer").classList.remove("nav-item__active");
-        });
-    });
-});
+function fechar(target){
+  document.addEventListener('DOMContentLoaded', () => {
+      // Seleciona todos os elementos com a classe 'menu-item'
+      const fechar = document.querySelectorAll('.fechar_'+target);
+  
+      // Adiciona um ouvinte de evento de clique a cada item de menu
+      fechar.forEach(item => {
+          item.addEventListener('click', () => {
+              document.getElementById(target).classList.add("hidden");
+              document.getElementById("nav-"+target).classList.remove("nav-item__active");
+          });
+      });
+  });
+}
 
 // ABRIR NOTAS AUTOADESIVAS
 document.addEventListener('DOMContentLoaded', () => {
