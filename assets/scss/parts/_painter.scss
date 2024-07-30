@@ -1,0 +1,143 @@
+.painter{
+    background: $bg_painter;
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    z-index: 10;
+
+    // VISUALIZAÇÃO PELO CELULAR
+    @media (max-width: $breakpoint-mobile) {
+        width: 90%;
+        top: 40px;
+        left: 5%;
+    }
+
+    &.max{
+        width: 100%;
+        height: calc(100% - 50px);
+        top: 0 !important;
+        left: 0 !important;
+    }
+
+    &.min{
+        transform: scale(0);
+        top: 100%;
+        transition: .2s ease-out;
+    }
+
+    &__header{
+        background-color: $theme_painter;
+        width: 100%;
+        height: 35px;
+        position: relative;
+        @include d-flex(space-between, center);
+        @include noselect();
+        color: #000;
+
+
+        &__titulo{
+            display: inline;
+            font-size: 12px;
+            box-sizing: border-box;
+            padding: 6px 15px;
+            width: 85%;
+
+            // VISUALIZAÇÃO PELO CELULAR
+            @media (max-width: $breakpoint-mobile) {
+                width: 60%;
+            }
+        }
+
+        &__botoes{
+            @include d-flex(center, center);
+            width: 15%;
+            height: 100%;
+
+            // VISUALIZAÇÃO PELO CELULAR
+            @media (max-width: $breakpoint-mobile) {
+                width: 40%;
+            }
+
+            div{
+                @include d-flex(center, center);
+                width: 33.33%;
+                height: 100%;
+                text-align: center;
+
+                .min{
+                    width: 8px;
+                    height: 8px;
+                    border-bottom: 1px solid #000;
+                }
+
+                .max{
+                    width: 8px;
+                    height: 8px;
+                    border: 1px solid #000;
+                }
+
+                .unmax{
+                    width: 8px;
+                    height: 8px;
+                    border: 1px solid #000;
+                    position: relative;
+                    &::after{
+                        content: '';
+                        width: 8px;
+                        height: 8px;
+                        border: 1px solid #fff;
+                        position: absolute;
+                        top: 1px;
+                        right: 1px;
+                        background: #000;
+                    }
+                }
+
+                .fechar{
+                    @include d-flex(center, center);
+                }
+
+                .fechar::after{
+                    content: "\00d7"; /* Renderiza o 'X' */
+                    font-weight: 100;
+                    transform: scale(1.4);
+                }
+
+                &:hover{
+                    background-color: $active;
+                }
+
+                &:last-child{
+                    &:hover{
+                        background-color: $danger;
+                    }
+                }
+            }
+        }
+    }
+
+    &__body{
+        width: 100%;
+        height: calc(100% - 35px);
+        @include d-flex(flex-start, flex-start, wrap);
+        align-content: flex-start;
+
+
+        &__conteudo{
+            @include d-flex(flex-start, flex-start);
+            width: 100%;
+            height: calc(100% - 75px);
+            position: relative;
+        }
+
+        &__canvas{
+            background: $theme_painter;
+            width: 90%;
+            height: 90%;
+            margin: 1%;
+            box-shadow: 3px 3px 10px #ababab;
+        }
+    }
+}

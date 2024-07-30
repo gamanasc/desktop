@@ -142,6 +142,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   //Make the DIV element draggagle:
 dragElement(document.getElementById("notas_autoadesivas"));
 dragElement(document.getElementById("explorer"));
+dragElement(document.getElementById("painter"));
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
