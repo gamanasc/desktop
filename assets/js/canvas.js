@@ -160,8 +160,17 @@ function displayImages() {
         span.className = 'atalho__nome'; // Adiciona a classe ao span
         span.textContent = `imagem${index + 1}`; // Define o texto do span
 
+        // Botão de remover imagem
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remover';
+        removeButton.className = 'remover-imagem';
+        removeButton.onclick = () => {
+            removeImage(index);
+        };
+
         imgContainer.appendChild(img); // Adiciona a imagem à div
         imgContainer.appendChild(span); // Adiciona o span à div
+        imgContainer.appendChild(removeButton); // Adiciona o botão à div
 
         // Encontra a última div com a classe "atalho"
         const lastAtalho = imageGallery.querySelector('.atalho:last-of-type');
@@ -177,7 +186,16 @@ function displayImages() {
 
 // Exemplo de botão para salvar e carregar o conteúdo
 document.getElementById('painter__save').addEventListener('click', saveToLocalStorage);
-document.getElementById('painter__load').addEventListener('click', loadFromLocalStorage);
+// document.getElementById('painter__load').addEventListener('click', loadFromLocalStorage);
+
+// Função para remover a imagem do localStorage e da exibição
+function removeImage(index) {
+    const images = JSON.parse(localStorage.getItem('canvasImages')) || [];
+    images.splice(index, 1); // Remove a imagem do array
+
+    localStorage.setItem('canvasImages', JSON.stringify(images)); // Atualiza o localStorage
+    displayImages(); // Atualiza a exibição das imagens
+}
 
 // Carrega as imagens do localStorage quando a página for carregada
 document.addEventListener('DOMContentLoaded', displayImages);
