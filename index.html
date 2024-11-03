@@ -12,7 +12,8 @@
     <div class="wallpaper">
         <!-- ATALHOS DESKTOP -->
 
-        <div class="desktop">
+        <div class="desktop" id="desktop">
+            
             <div class="atalho abrir_explorer" data-tipo="lixeira">
                <img src="assets/images/icons/lixeira.png" alt="Atalho de lixeira" draggable="false">
                <span class="atalho__nome">Lixeira</span>
@@ -22,14 +23,15 @@
                 <img src="assets/images/icons/folder.png" alt="Atalho de explorador de arquivos" draggable="false">
                 <span class="atalho__nome">Explorer</span>
              </div>
+
              
              
              <!-- APLICAÇÕES ABERTAS -->
 
              <!-- NOTAS AUTOADESIVAS -->
-              <div class="notas_autoadesivas" id="notas_autoadesivas">
+              <div class="notas_autoadesivas" id="notas">
                 <div class="notas_autoadesivas__header">
-                    <div id="notas_autoadesivas__dragabble">
+                    <div id="notas__dragabble">
                         <div class="notas_autoadesivas__header__add">+</div>
                     </div>
                     <div class="notas_autoadesivas__header__fechar" id="fechar_notas">x</div>
@@ -87,7 +89,7 @@
 
             </div>
 
-            <!-- EDITOR -->
+            <!-- EDITOR -->            
             <div class="painter" id="painter">
                 <!-- HEADER -->
                 <div class="painter__header">
@@ -97,6 +99,12 @@
                         <div id="max_painter"> <span class="max"></span></div>
                         <div class="fechar_painter"> <span class="fechar"></span></div>
                     </div>
+                </div>
+
+                <!-- OPÇÕES -->
+                <div class="painter__opcoes">
+                    <div class="painter__opcoes__item" id="painter__save">Salvar</div>
+                    <div class="painter__opcoes__item" id="painter__load">Carregar</div>
                 </div>
 
                 <div class="painter__toolbar hidden">
@@ -134,6 +142,7 @@
             <div class="barra-tarefas__apps">
                 <div id="nav-explorer" class="nav-item abrir_explorer"> <img src="assets/images/icons/folder.png" alt="Ícone de explorador de arquivos" draggable="false"> </div>
                 <div id="nav-notas" class="nav-item abrir_notas nav-item__active" > <img src="assets/images/icons/notes.png" alt="Ícone de notas autoadesivas" draggable="false"> </div>
+                <div id="nav-painter" class="nav-item abrir_painter" > <img src="assets/images/icons/lixeira.png" alt="Ícone de painter" draggable="false"> </div>
             </div>
 
             <div class="barra-tarefas__icones">
@@ -161,8 +170,8 @@
      </div>
 
     <!-- JAVASCRIPT -->
+    <script src="assets/js/canvas.js"></script>
      <script src="assets/js/script.js"></script>
-     <script src="assets/js/canvas.js"></script>
 
 </body>
 </html>

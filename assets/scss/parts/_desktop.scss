@@ -30,6 +30,10 @@
         text-align: center;
     }
 
+    &__imagem-salva{
+        min-height: 85px;
+    }
+
     &.active{
         outline: 1px solid $border;
         background-color: $active;

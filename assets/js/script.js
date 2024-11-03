@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 // Basado no código presente em: https://www.w3schools.com/howto/howto_css_text_selection.asp
 
   //Make the DIV element draggagle:
-dragElement(document.getElementById("notas_autoadesivas"));
+dragElement(document.getElementById("notas"));
 dragElement(document.getElementById("explorer"));
 dragElement(document.getElementById("painter"));
 
@@ -183,25 +183,31 @@ function dragElement(elmnt) {
   }
 }
 
+abrir('explorer');
+abrir('notas');
+
+
 // ABRIR EXPLORADOR DE ARQUIVOS
-document.addEventListener('DOMContentLoaded', () => {
-    // Seleciona todos os elementos com a classe 'menu-item'
-    const abrir_explorer = document.querySelectorAll('.abrir_explorer');
-
-    // Adiciona um ouvinte de evento de clique a cada item de menu
-    abrir_explorer.forEach(item => {
-        item.addEventListener('click', (event) => {
-
-          // ABRIR PELO ÍCONE COM CLIQUE DUPLO, E PELA BARRA DE TAREFAS COM UM CLIQUE SÓ
-          if (event.detail === 2 || (event.detail === 1 && item.classList.contains('nav-item')) || check_mobile() ) {
-            document.getElementById("explorer").classList.remove("hidden");
-            document.getElementById("explorer").classList.remove("min");
-            document.getElementById("nav-explorer").classList.add("nav-item__active");
-          }
-
-        });
-    });
-});
+function abrir(target){
+  document.addEventListener('DOMContentLoaded', () => {
+      // Seleciona todos os elementos com a classe 'menu-item'
+      const abrir = document.querySelectorAll('.abrir_'+target);
+  
+      // Adiciona um ouvinte de evento de clique a cada item de menu
+      abrir.forEach(item => {
+          item.addEventListener('click', (event) => {
+  
+            // ABRIR PELO ÍCONE COM CLIQUE DUPLO, E PELA BARRA DE TAREFAS COM UM CLIQUE SÓ
+            if (event.detail === 2 || (event.detail === 1 && item.classList.contains('nav-item')) || check_mobile() ) {
+              document.getElementById(target).classList.remove("hidden");
+              document.getElementById(target).classList.remove("min");
+              document.getElementById("nav-"+target).classList.add("nav-item__active");
+            }
+  
+          });
+      });
+  });
+}
 
 maximizar('explorer');
 maximizar('painter');
@@ -217,14 +223,18 @@ function maximizar(target){
         document.getElementById(target).classList.add("max");
         max.getElementsByTagName("span")[0].classList.remove("max");
         max.getElementsByTagName("span")[0].classList.add("unmax");
+        resizeCanvas();
+
       }else{
         document.getElementById(target).classList.remove("max");
         max.getElementsByTagName("span")[0].classList.add("max");
         max.getElementsByTagName("span")[0].classList.remove("unmax");
+        resizeCanvas();
       }
   
     });
   });
+
 }
 
 minimizar('explorer');
@@ -263,30 +273,12 @@ function fechar(target){
   });
 }
 
-// ABRIR NOTAS AUTOADESIVAS
-document.addEventListener('DOMContentLoaded', () => {
-  const abrir_notas = document.querySelectorAll('.abrir_notas');
-
-  // Adiciona um ouvinte de evento de clique a cada item de menu
-  abrir_notas.forEach(item => {
-      item.addEventListener('click', (event) => {
-
-        // ABRIR PELO ÍCONE COM CLIQUE DUPLO, E PELA BARRA DE TAREFAS COM UM CLIQUE SÓ
-        if (event.detail === 2 || (event.detail === 1 && item.classList.contains('nav-item')) || check_mobile() ) {
-          document.getElementById("notas_autoadesivas").classList.remove("hidden");
-          document.getElementById("nav-notas").classList.add("nav-item__active");
-        }
-
-      });
-  });
-});
-
 // FECHAR NOTAS AUTOADESIVAS
 document.addEventListener('DOMContentLoaded', () => {
   const fechar_notas = document.getElementById("fechar_notas");
 
   fechar_notas.addEventListener('click', () => {
-      document.getElementById("notas_autoadesivas").classList.add("hidden");
+      document.getElementById("notas").classList.add("hidden");
       document.getElementById("nav-notas").classList.remove("nav-item__active");
   });
 });
@@ -299,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Adiciona um ouvinte de evento de clique a cada item de menu
   btn_voltar.addEventListener('click', () => {
       document.getElementById("explorer").classList.add("hidden");
-      document.getElementById("notas_autoadesivas").classList.add("hidden");
+      document.getElementById("notas").classList.add("hidden");
   });
 
 });
