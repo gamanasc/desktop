@@ -23,7 +23,7 @@ if (document.addEventListener) {
     let element = e.target;
 
     // Loop para verificar o elemento e seus pais
-    if (element.classList && element.classList.contains('atalho') || (element.parentElement.classList && element.parentElement.classList.contains('atalho') )) {
+    if (element.classList && element.classList.contains('atalho__imagem-salva') || (element.parentElement.classList && element.parentElement.classList.contains('atalho__imagem-salva') )) {
       var div = document.getElementById('menu_personalizado_arquivo');
     }else{
       var div = document.getElementById('menu_personalizado');
@@ -36,7 +36,18 @@ if (document.addEventListener) {
     // if (e.target.parentElement) {
     //     console.log('Classes do pai:', e.target.parentElement.classList.value);
     // }
-    
+
+  // Verifica se o elemento clicado está dentro de uma div 'atalho'
+  const atalhoDiv = element.closest('.atalho');
+  if (atalhoDiv) {
+      // Captura o botão 'remover-imagem' dentro da div 'atalho'
+      const elementoRemover = atalhoDiv.querySelector('.remover-imagem');
+
+      // Verifica se o elemento encontrado é válido
+      if (elementoRemover) {
+          document.getElementById('apagar_arquivo').setAttribute('data-index', elementoRemover.dataset.index); // Adiciona o atributo data-tipo
+      }
+  }
 
     div.style.left = left;
     div.style.top = top;
@@ -55,11 +66,15 @@ if (document.addEventListener) {
 }
 
 window.addEventListener('click', function(e) {   
+  fecharMenuDeContexto(e.target);
+});
+
+function fecharMenuDeContexto(target){
   const menus = document.getElementsByClassName('menu_personalizado');
 
   let clickedInsideMenu = false;
   for (let i = 0; i < menus.length; i++) {
-      if (menus[i].contains(e.target)) {
+      if (menus[i].contains(target)) {
           clickedInsideMenu = true;
           break;
       }
@@ -70,8 +85,7 @@ window.addEventListener('click', function(e) {
           menus[i].classList.add("hidden");
       }
   }
-});
-
+}
 
 // DATA E HORA
 function updateDateTime() {
@@ -322,4 +336,10 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById("notas").classList.add("hidden");
   });
 
+});
+
+// APAGAR IMAGEM
+document.getElementById('apagar_arquivo').addEventListener('click', function(e) {
+    removeImage(e.target.dataset.index);
+    fecharMenuDeContexto();
 });

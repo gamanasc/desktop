@@ -163,10 +163,11 @@ function displayImages() {
         // Botão de remover imagem
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remover';
-        removeButton.className = 'remover-imagem';
-        removeButton.onclick = () => {
-            removeImage(index);
-        };
+        removeButton.className = 'remover-imagem hidden';
+        removeButton.setAttribute('data-index', index); // Adiciona o atributo data-tipo
+        // removeButton.onclick = () => {
+        //     removeImage(index);
+        // };
 
         imgContainer.appendChild(img); // Adiciona a imagem à div
         imgContainer.appendChild(span); // Adiciona o span à div
