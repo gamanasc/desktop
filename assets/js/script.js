@@ -226,6 +226,7 @@ function dragElement(elmnt) {
 }
 
 abrir('explorer');
+abrir('painter');
 abrir('notas');
 
 
@@ -245,11 +246,18 @@ function abrir(target){
               document.getElementById(target).classList.remove("min");
               document.getElementById("nav-"+target).classList.add("nav-item__active");
             }
+
+            if(target == 'painter'){
+                resizeCanvas()
+            }
   
           });
       });
+
   });
+
 }
+
 
 maximizar('explorer');
 maximizar('painter');
@@ -333,6 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Adiciona um ouvinte de evento de clique a cada item de menu
   btn_voltar.addEventListener('click', () => {
       document.getElementById("explorer").classList.add("hidden");
+      document.getElementById("painter").classList.add("hidden");
       document.getElementById("notas").classList.add("hidden");
   });
 

@@ -31,6 +31,7 @@ function undo() {
 
 // Função para redimensionar o canvas mantendo a proporção
 function resizeCanvas() {
+
     const dataURL = canvas.toDataURL();
     const newWidth = canvas.offsetWidth;
     const newHeight = canvas.offsetHeight;
