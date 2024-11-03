@@ -132,8 +132,6 @@ function saveToLocalStorage() {
 
     images.push(dataURL); // Adiciona a nova imagem ao array
     localStorage.setItem('canvasImages', JSON.stringify(images)); // Salva o array atualizado no localStorage
-
-    alert('Imagem salva no localStorage!');
     displayImages(); // Atualiza a exibição das imagens
 }
 
@@ -143,7 +141,6 @@ function displayImages() {
     const images = JSON.parse(localStorage.getItem('canvasImages')) || [];
 
     // Limpa a galeria antes de atualizar
-    // imageGallery.innerHTML = ''; 
     document.querySelectorAll("[data-tipo='imagem']").forEach(e => e.remove());
 
     images.forEach((dataURL, index) => {
@@ -156,8 +153,8 @@ function displayImages() {
         img.src = dataURL;
         img.alt = `Desenho ${index + 1}`;
         img.draggable = false; // Define o atributo draggable como false
-        img.style.height = '42.5px'; // Ajusta a altura automaticamente para manter a proporção
-        img.style.marginBottom = '5px'; // Ajusta a altura automaticamente para manter a proporção
+        img.style.height = '42.5px'; // Ajusta a altura da imagem
+        img.style.marginBottom = '5px'; // Ajusta a margem inferior da imagem
 
         const span = document.createElement('span'); // Cria um span para o nome do arquivo
         span.className = 'atalho__nome'; // Adiciona a classe ao span
@@ -168,7 +165,6 @@ function displayImages() {
 
         // Encontra a última div com a classe "atalho"
         const lastAtalho = imageGallery.querySelector('.atalho:last-of-type');
-        
 
         // Se existir uma última div "atalho", insere a nova imagem após ela; caso contrário, adiciona no início
         if (lastAtalho) {
@@ -182,3 +178,6 @@ function displayImages() {
 // Exemplo de botão para salvar e carregar o conteúdo
 document.getElementById('painter__save').addEventListener('click', saveToLocalStorage);
 document.getElementById('painter__load').addEventListener('click', loadFromLocalStorage);
+
+// Carrega as imagens do localStorage quando a página for carregada
+document.addEventListener('DOMContentLoaded', displayImages);
