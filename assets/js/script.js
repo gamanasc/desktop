@@ -10,22 +10,38 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 if (document.addEventListener) {
   document.addEventListener('contextmenu', function(e) {
 
-    console.log(e.target);  // to get the element
+    // console.log(e.target);  // to get the element
     // console.log(e.target.tagName);  // to get the element tag name alone
     
-    if(!e.target.classList.contains('desktop')){
-      return false;
-    }
+    // if(!e.target.classList.contains('desktop')){
+    //   return false;
+    // }
 
     var left  = e.clientX  + "px";
     var top  = e.clientY  + "px";
 
-    var div = document.getElementById('menu_personalizado');
+    let element = e.target;
+
+    // Loop para verificar o elemento e seus pais
+    if (element.classList && element.classList.contains('atalho') || (element.parentElement.classList && element.parentElement.classList.contains('atalho') )) {
+      var div = document.getElementById('menu_personalizado_arquivo');
+    }else{
+      var div = document.getElementById('menu_personalizado');
+    }
+    
+    // // Exibe as classes do elemento clicado
+    // console.log('Classes do elemento clicado:', e.target.classList.value);
+
+    // // Exibe as classes do pai do elemento clicado
+    // if (e.target.parentElement) {
+    //     console.log('Classes do pai:', e.target.parentElement.classList.value);
+    // }
+    
 
     div.style.left = left;
     div.style.top = top;
 
-    document.getElementById("menu_personalizado").classList.remove("hidden");
+    div.classList.remove("hidden");
 
     e.preventDefault();
     return false;
@@ -38,9 +54,21 @@ if (document.addEventListener) {
   });
 }
 
-window.addEventListener('click', function(e){   
-  if (!document.getElementById('menu_personalizado').contains(e.target)){
-    document.getElementById("menu_personalizado").classList.add("hidden");
+window.addEventListener('click', function(e) {   
+  const menus = document.getElementsByClassName('menu_personalizado');
+
+  let clickedInsideMenu = false;
+  for (let i = 0; i < menus.length; i++) {
+      if (menus[i].contains(e.target)) {
+          clickedInsideMenu = true;
+          break;
+      }
+  }
+
+  if (!clickedInsideMenu) {
+      for (let i = 0; i < menus.length; i++) {
+          menus[i].classList.add("hidden");
+      }
   }
 });
 
